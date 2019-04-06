@@ -1,5 +1,5 @@
 require_relative('../db/sql_runner.rb')
-require_relative('../db/sql_runner.rb')
+
 
 class Customer
 
@@ -46,8 +46,22 @@ class Customer
   end
 
   def buy_ticket(film)
+
+    if(@funds - film.price < 0)
+      p "No more money!"
+      return
+    end
+
+    if(film.tickets_left <= 0)
+      p "No more tickets!"
+      return
+    end
+
+    film.remove_ticket
+
     @funds -= film.price
     update()
+
   end
 
   def tickets_purchased

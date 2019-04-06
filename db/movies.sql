@@ -11,7 +11,8 @@ funds INT
 CREATE TABLE films(
   id SERIAL PRIMARY KEY,
   title VARCHAR,
-  price INT
+  price INT,
+  tickets_left INT
 );
 
 CREATE TABLE tickets(
