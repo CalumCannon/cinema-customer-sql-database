@@ -50,4 +50,8 @@ class Customer
     update()
   end
 
+  def tickets_purchased
+    return films.count
+  end
+
 end
