@@ -52,6 +52,9 @@ film1.update()
 customer1.name = 'Rick Deckard'
 customer1.update()
 
+customer1.buy_ticket(film1);
+customer1.buy_ticket(film1);
+
 # film1.delete
 # customer1.delete
 # ticket1.delete

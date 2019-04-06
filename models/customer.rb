@@ -45,7 +45,9 @@ class Customer
     return films_hash_array.map{|film| Film.new(film)}
   end
 
-  # MOVIE OBJECT SELECTING ALL STARS FROM SELF MOVIE
-  # "SELECT stars.* FROM stars INNER JOIN castings ON stars.id = castings.star_id WHERE castings.movie_id = $1"
+  def buy_ticket(film)
+    @funds -= film.price
+    update()
+  end
 
 end
