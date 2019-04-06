@@ -44,5 +44,8 @@ class Film
     return customers_hash_array.map{|film| Customer.new(film)}
   end
 
+  def customer_count
+    return customers.count
+  end
 
 end
