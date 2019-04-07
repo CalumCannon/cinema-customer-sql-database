@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner.rb')
+require('pry-byebug')
 
 class Film
 
@@ -53,6 +54,30 @@ class Film
   def remove_ticket
     @tickets_left -= 1
     update
+  end
+
+  def self.all
+   sql = "SELECT * FROM films"
+   result = SqlRunner.run(sql)
+   return result.map { |film| Customer.new(film)}
+  end
+
+  def attendees_count
+    sql = "SELECT COUNT(film_id) FROM tickets WHERE film_id = $1"
+    values = [@id]
+    result = SqlRunner.run(sql,values)[0]
+    return result
+  end
+
+  def self.most_popular_film
+    sql = "SELECT film_id, COUNT(*) FROM tickets GROUP BY film_id ORDER BY count DESC LIMIT 1;"
+    result = SqlRunner.run(sql)[0]
+
+    sql2 = "SELECT * FROM films WHERE id = $1"
+    values = [result["film_id"]]
+    result2 = SqlRunner.run(sql2, values).first
+    # binding.pry
+    return Film.new(result2)
   end
 
 end
