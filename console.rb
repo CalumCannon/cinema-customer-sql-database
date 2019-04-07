@@ -58,10 +58,12 @@ customer1.update()
 customer1.buy_ticket(film1);
 customer1.buy_ticket(film1);
 
+# Film.most_popular_film
+
 # film1.delete
 # customer1.delete
 # ticket1.delete
 
- binding.pry
+binding.pry
 
 nil

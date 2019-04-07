@@ -37,4 +37,15 @@ class Ticket
     SqlRunner.run(sql,values)
   end
 
+  def self.all
+   sql = "SELECT * FROM tickets"
+   result = SqlRunner.run(sql)
+   return result.map { |ticket| Ticket.new(ticket)}
+  end
+
+  def self.most_popular_film
+    # go through data work out what film_id shows up the most
+
+  end
+
 end
