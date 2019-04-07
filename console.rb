@@ -44,7 +44,7 @@ ticket2.save()
 ticket3 = Ticket.new({
   'customer_id' => customer2.id,
   'film_id' => film1.id,
-  'showing_time' => '17:00'
+  'showing_time' => '19:30'
   })
 ticket3.save()
 
