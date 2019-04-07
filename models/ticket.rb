@@ -43,9 +43,9 @@ class Ticket
    return result.map { |ticket| Ticket.new(ticket)}
   end
 
-  def self.most_popular_film
-    # go through data work out what film_id shows up the most
-
+  def self.showing_times
+     sql = "SELECT films.title AS film_title, tickets.showing_time AS showing_time FROM films INNER JOIN tickets ON tickets.film_id = films.id;"
+     result = SqlRunner.run(sql)
+     return result
   end
-
 end
